@@ -112,6 +112,7 @@ async def whisper_diarized(youtube_url: str, api_key: str, flag: bool=False):
                 file=f,
                 response_format="diarized_json" if flag else "json",
                 chunking_strategy="auto",
+                language="en",
             )
     
         segments = []
