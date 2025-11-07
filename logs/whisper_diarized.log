@@ -1,0 +1,72 @@
+INFO | 2025-11-07 17:07:52,384 | whisper_diarized | === Start diarized transcription ===
+ERROR | 2025-11-07 17:08:06,849 | whisper_diarized | FAILED: [0;31mERROR:[0m Postprocessing: ffprobe and ffmpeg not found. Please install or provide the path using --ffmpeg-location
+Traceback (most recent call last):
+  File "D:\whisper tool demo\venv\Lib\site-packages\yt_dlp\YoutubeDL.py", line 3563, in process_info
+    replace_info_dict(self.post_process(dl_filename, info_dict, files_to_move))
+                      ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\whisper tool demo\venv\Lib\site-packages\yt_dlp\YoutubeDL.py", line 3749, in post_process
+    info = self.run_all_pps('post_process', info, additional_pps=info.get('__postprocessors'))
+  File "D:\whisper tool demo\venv\Lib\site-packages\yt_dlp\YoutubeDL.py", line 3731, in run_all_pps
+    info = self.run_pp(pp, info)
+  File "D:\whisper tool demo\venv\Lib\site-packages\yt_dlp\YoutubeDL.py", line 3709, in run_pp
+    files_to_delete, infodict = pp.run(infodict)
+                                ~~~~~~^^^^^^^^^^
+  File "D:\whisper tool demo\venv\Lib\site-packages\yt_dlp\postprocessor\common.py", line 23, in run
+    ret = func(self, info, *args, **kwargs)
+  File "D:\whisper tool demo\venv\Lib\site-packages\yt_dlp\postprocessor\common.py", line 128, in wrapper
+    return func(self, info)
+  File "D:\whisper tool demo\venv\Lib\site-packages\yt_dlp\postprocessor\ffmpeg.py", line 483, in run
+    filecodec = self.get_audio_codec(path)
+  File "D:\whisper tool demo\venv\Lib\site-packages\yt_dlp\postprocessor\ffmpeg.py", line 231, in get_audio_codec
+    raise PostProcessingError('ffprobe and ffmpeg not found. Please install or provide the path using --ffmpeg-location')
+yt_dlp.utils.PostProcessingError: ffprobe and ffmpeg not found. Please install or provide the path using --ffmpeg-location
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\whisper tool demo\whisper_tool_demo.py", line 87, in whisper_diarized
+    audio_path = await download_audio_from_youtube(youtube_url)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\whisper tool demo\whisper_tool_demo.py", line 59, in download_audio_from_youtube
+    return await asyncio.to_thread(_run)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\avina\AppData\Local\Programs\Python\Python313\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\avina\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "D:\whisper tool demo\whisper_tool_demo.py", line 54, in _run
+    ydl.download([url])
+    ~~~~~~~~~~~~^^^^^^^
+  File "D:\whisper tool demo\venv\Lib\site-packages\yt_dlp\YoutubeDL.py", line 3611, in download
+    self.__download_wrapper(self.extract_info)(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        url, force_generic_extractor=self.params.get('force_generic_extractor', False))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\whisper tool demo\venv\Lib\site-packages\yt_dlp\YoutubeDL.py", line 3584, in wrapper
+    res = func(*args, **kwargs)
+  File "D:\whisper tool demo\venv\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1634, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\whisper tool demo\venv\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1645, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\whisper tool demo\venv\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1801, in __extract_info
+    return self.process_ie_result(ie_result, download, extra_info)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\whisper tool demo\venv\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1860, in process_ie_result
+    ie_result = self.process_video_result(ie_result, download=download)
+  File "D:\whisper tool demo\venv\Lib\site-packages\yt_dlp\YoutubeDL.py", line 3038, in process_video_result
+    self.process_info(new_info)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\whisper tool demo\venv\Lib\site-packages\yt_dlp\YoutubeDL.py", line 187, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\whisper tool demo\venv\Lib\site-packages\yt_dlp\YoutubeDL.py", line 3565, in process_info
+    self.report_error(f'Postprocessing: {err}')
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\whisper tool demo\venv\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1103, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\whisper tool demo\venv\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1042, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m Postprocessing: ffprobe and ffmpeg not found. Please install or provide the path using --ffmpeg-location
+
