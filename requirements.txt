@@ -3,3 +3,4 @@ yt-dlp
 ffmpeg-python
 openai
 fastapi
+python-dotenv
