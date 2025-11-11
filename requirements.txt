@@ -1,6 +1,9 @@
 streamlit
-yt-dlp
-ffmpeg-python
 openai
-fastapi
 python-dotenv
+yt-dlp
+youtube_dl
+pytube
+ffmpeg-python
+fastapi
+aiohttp
