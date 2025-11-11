@@ -341,7 +341,7 @@ if st.button("🚀 Transcribe"):
             st.subheader("🧠 Model Used:")
             st.code(result["model"], language="text")
 
-            st.subheader("📜 English-Only Transcript:")
+            st.subheader("📜 Transcript:")
             st.text_area("Transcript", value=result["summary"], height=300)
 
             if flag:
